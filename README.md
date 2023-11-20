@@ -6,7 +6,7 @@ Mobile User Interface for [OpenKarotz](http://openkarotz.filippi.org/).
 
 ## Usage ##
 
-1. Download latest version from [dist folder](https://github.com/hobbe/openkarotz-mui/tree/master/dist).
+1. Download latest version from [dist folder](https://github.com/wulfaz/openkarotz-mui/tree/master/dist).
 
 2. Unzip to your web server documents folder.
 
@@ -25,7 +25,7 @@ The file `config.json` contains the application configuration.
     "karotz": {
         "host": "localhost",
         "name": "Karotz",
-        "voice" : "claire"
+        "voice" : "alice"
     }
 }
 ```
@@ -51,8 +51,9 @@ Stories may be customized in the `data/stories.json` configuration file.
 
 ## License ##
 
+Copyright (c) 2023 Lionel Caillis
 Copyright (c) 2013-2014 Olivier Bagot
 
 Licensed under [The MIT License (MIT)](http://opensource.org/licenses/MIT)
 
-See [LICENSE](https://github.com/hobbe/openkarotz-mui/raw/master/LICENSE)
+See [LICENSE](https://github.com/wulfaz/openkarotz-mui/raw/master/LICENSE)
