@@ -52,6 +52,7 @@ function dismissAlert() {
 
 function updateKarotzInfo() {
 	$("#ok-info-version").html(K.getState().version);
+	$("#ok-info-patch").html(K.getState().patch);
 	$("#ok-info-ethmac").html(K.getState().eth_mac);
 	$("#ok-info-wlanmac").html(K.getState().wlan_mac);
 
@@ -201,22 +202,6 @@ function kEarsRandom() {
 function kSpeak(text) {
 	K.tts(text, config.karotz.voice, true, null, function(msg) {
 		showAlert(msg);
-	});
-}
-
-function loadSnapshots() {
-	K.snapshotList(function(data) {
-		var html = '';
-		$.each(data.snapshots, function(index, snapshot) {
-			var filename = snapshot.id;
-			html += '<li>';
-			html += '<a href="' + K.getSnapshotUrl(filename) + '" title="' + filename + '" class="fancybox-thumb fancybox.image" rel="fancybox-thumb">';
-			html += '<img class="snapshot" src="' + K.getSnapshotThumbnailUrl(filename) + '" alt="' + filename + '">';
-			html += '</a>';
-			html += '</li>';
-		});
-
-		$("#snapshotlist").html(html);
 	});
 }
 
@@ -421,7 +406,7 @@ function loadStories() {
 
 // TODO: This should be in a plugin
 function halloween(id) {
-	kSoundUrl('http://192.168.10.50/plugins/halloween/' + id + '.mp3');
+	kSoundUrl(K.getUrl() + '/plugins/halloween/' + id + '.mp3');
 }
 
 // TODO: This should be in a plugin
@@ -433,7 +418,7 @@ function halloweenMood() {
 
 // TODO: This should be in a plugin
 function xmas(id) {
-	kSoundUrl('http://192.168.10.50/plugins/xmas/' + id + '.mp3');
+	kSoundUrl(K.getUrl() + '/plugins/xmas/' + id + '.mp3');
 }
 
 
@@ -466,11 +451,11 @@ function initButtonHandlers(){
 		kSoundStop();
 	});
 
-	$('#sleepbutton').click(function() {
+	sleepButton.click(function() {
 		kSleep();
 	});
 
-	$('#wakeupbutton').click(function() {
+	wakeupButton.click(function() {
 		kWakeUp();
 	});
 
@@ -553,12 +538,11 @@ function initializeGui() {
 	initFancyBox();
 
 	// Visibility
-	$('#alert').hide();
+	alertPanel.hide();
 
 	// Usability
 	// TODO: this button not yet implemented
 	$('#soundplaybutton').addClass("disabled");
-
 }
 
 
