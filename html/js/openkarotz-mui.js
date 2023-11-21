@@ -5,7 +5,7 @@
  * - jQuery 1.10+
  * - FancyBox 2.1.5+
  * - Bootstrap 3.0+
- * - OpenKarotz-js 0.4+
+ * - OpenKarotz-js 0.5+
  */
 
 // Config to be loaded from /config.json
